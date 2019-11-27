@@ -1,0 +1,75 @@
+library(fitdistrplus)
+
+> x <-ASM_data$MAG
+> y <- ASM_data$`Intervent time`/365
+> summary(y)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.2151  0.5918  1.1602  1.3384  5.9178 
+
+> hist(y, breaks = 50,probability = T ,main = "Histogram of Intervent time Variable")
+> lines(density(y), col="red", lwd=2)
+
+> norMLE<-fitdist(y, "norm", method= "mle")
+> norMLE
+Fitting of the distribution ' norm ' by maximum likelihood 
+Parameters:
+     estimate Std. Error
+mean 1.160219  0.2136146
+sd   1.510483  0.1510480
+> summary(norMLE)
+Fitting of the distribution ' norm ' by maximum likelihood 
+Parameters : 
+     estimate Std. Error
+mean 1.160219  0.2136146
+sd   1.510483  0.1510480
+Loglikelihood:  -91.5684   AIC:  187.1368   BIC:  190.9608 
+Correlation matrix:
+     mean sd
+mean    1  0
+sd      0  1
+
+> plot(norMLE)
+
+> weiMLE<-fitdist(y, "weibull", method= "mle", lower = c(0, 0), start = list(scale = 1, shape = 1))
+> weiMLE
+Fitting of the distribution ' weibull ' by maximum likelihood 
+Parameters:
+      estimate Std. Error
+scale 1.160219         NA
+shape 1.000000         NA
+> plot(weiMLE)
+> summary(weiMLE)
+Fitting of the distribution ' weibull ' by maximum likelihood 
+Parameters : 
+      estimate Std. Error
+scale 1.160219         NA
+shape 1.000000         NA
+Loglikelihood:  -57.43045   AIC:  118.8609   BIC:  122.6849 
+
+
+
+> expMLE<-fitdist(y, "exp", method= "mle")
+> expMLE
+Fitting of the distribution ' exp ' by maximum likelihood 
+Parameters:
+      estimate Std. Error
+rate 0.8619061  0.1218918
+> plot(expMLE)
+> summary(expMLE)
+Fitting of the distribution ' exp ' by maximum likelihood 
+Parameters : 
+      estimate Std. Error
+rate 0.8619061  0.1218918
+Loglikelihood:  -57.43045   AIC:  116.8609   BIC:  118.7729 
+> gfMLE<-gofstat(list(norMLE, weiMLE,expMLE))
+> gfMLE
+Goodness-of-fit statistics
+                             1-mle-norm 2-mle-weibull 3-mle-exp
+Kolmogorov-Smirnov statistic  0.2770562     0.1865768 0.1865768
+Cramer-von Mises statistic    0.9500451     0.5107694 0.5107694
+Anderson-Darling statistic    5.0754659           Inf       Inf
+
+Goodness-of-fit criteria
+                               1-mle-norm 2-mle-weibull 3-mle-exp
+Akaike's Information Criterion   187.1368      118.8609  116.8609
+Bayesian Information Criterion   190.9608      122.6849  118.7729

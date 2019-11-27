@@ -1,0 +1,54 @@
+Fitting of the distribution ' norm ' by maximum likelihood 
+Parameters : 
+     estimate Std. Error
+mean 1.269692  0.2183545
+sd   1.398151  0.1543996
+Loglikelihood:  -71.91766   AIC:  147.8353   BIC:  151.2625 
+
+
+
+Fitting of the distribution ' weibull ' by maximum likelihood 
+Parameters : 
+       estimate Std. Error
+scale 1.2405979         NA
+shape 0.9539309         NA
+Loglikelihood:  -50.70796   AIC:  105.4159   BIC:  108.8431 
+
+
+Fitting of the distribution ' gamma ' by maximum likelihood 
+Parameters : 
+       estimate Std. Error
+shape 0.9851117  0.1913182
+rate  0.7758417  0.1939231
+Loglikelihood:  -50.78672   AIC:  105.5734   BIC:  109.0006 
+Correlation matrix:
+          shape      rate
+shape 1.0000000 0.7769858
+rate  0.7769858 1.0000000
+
+
+Fitting of the distribution ' lnorm ' by maximum likelihood 
+Parameters : 
+          estimate Std. Error
+meanlog -0.3482619  0.1786979
+sdlog    1.1442250  0.1263581
+Loglikelihood:  -49.42157   AIC:  102.8431   BIC:  106.2703 
+
+
+Fitting of the distribution ' exp ' by maximum likelihood 
+Parameters : 
+      estimate Std. Error
+rate 0.7875925  0.1230011
+Loglikelihood:  -50.78975   AIC:  103.5795   BIC:  105.2931 
+
+
+Goodness-of-fit statistics
+                             1-mle-norm 2-mle-weibull 3-mle-exp 4-mle-lnorm 5-mle-gamma
+Kolmogorov-Smirnov statistic  0.2692187     0.1573823 0.1722280  0.09634274   0.1698925
+Cramer-von Mises statistic    0.7117052     0.1336108 0.1681879  0.04413660   0.1618538
+Anderson-Darling statistic    3.7951678     0.7181976 0.8546016  0.29503546   0.8286339
+
+Goodness-of-fit criteria
+                               1-mle-norm 2-mle-weibull 3-mle-exp 4-mle-lnorm 5-mle-gamma
+Akaike's Information Criterion   147.8353      105.4159  103.5795    102.8431    105.5734
+Bayesian Information Criterion   151.2625      108.8431  105.2931    106.2703    109.0006

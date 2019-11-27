@@ -1,0 +1,37 @@
+Fitting of the distribution ' norm ' by matching moments 
+Parameters : 
+     estimate
+mean 1.269692
+sd   1.398151
+Loglikelihood:  -71.91766   AIC:  147.8353   BIC:  151.2625
+
+Fitting of the distribution ' gamma ' by matching moments 
+Parameters : 
+       estimate
+shape 0.8246861
+rate  0.6495166
+Loglikelihood:  -51.18573   AIC:  106.3715   BIC:  109.7986
+
+Fitting of the distribution ' exp ' by matching moments 
+Parameters : 
+      estimate
+rate 0.7875925
+Loglikelihood:  -50.78975   AIC:  103.5795   BIC:  105.2931 
+
+Fitting of the distribution ' lnorm ' by matching moments 
+Parameters : 
+          estimate
+meanlog -0.1583058
+sdlog    0.8911568
+Loglikelihood:  -53.40079   AIC:  110.8016   BIC:  114.2287
+
+Goodness-of-fit statistics
+                             1-mme-norm 2-mme-exp 3-mme-lnorm 4-mme-gamma
+Kolmogorov-Smirnov statistic  0.2692187 0.1722280   0.1705212   0.1421920
+Cramer-von Mises statistic    0.7117052 0.1681879   0.2739077   0.1229073
+Anderson-Darling statistic    3.7951678 0.8546016   2.0273206   0.7343115
+
+Goodness-of-fit criteria
+                               1-mme-norm 2-mme-exp 3-mme-lnorm 4-mme-gamma
+Akaike's Information Criterion   147.8353  103.5795    110.8016    106.3715
+Bayesian Information Criterion   151.2625  105.2931    114.2287    109.7986

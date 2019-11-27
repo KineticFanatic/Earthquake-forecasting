@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574245222365.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "AF16010A",
+    "lastKnownWriteTime" : 1692140065840,
+    "last_content_update" : 1574245222365,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "id" : "e98a94afe3ae4b01a1a6a4190f0d3e0a",
+        "name" : "gf",
+        "title" : "gf"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "object_explorer"
+}

@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574245236981.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2A75D12E",
+    "lastKnownWriteTime" : 1692140065840,
+    "last_content_update" : 1574245236981,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "id" : "7271b47d893d409898d16d75759af7c5",
+        "name" : "gfMLE",
+        "title" : "gfMLE"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "object_explorer"
+}
