@@ -1,42 +1,16 @@
+#importing data
 data <- data_ASM
-matplot(data_ASM, type = "l")
-plot(data_ASM, type='p', par=log() ).log
-y <- data_ASM[1]
-x <- data_ASM[2]
-
-abline(reg = lm(data ~ time(data$DATE)))
-
-cycle(data)
-
-
 x <- log(data_ASM$MAG)
-y <- data_ASM$DATE
 y <- data_ASM$`Intervent time`/365
-x
+
+#Histogram Plot
+matplot(data_ASM, type = "l")
+abline(reg = lm(data ~ time(data$DATE)))
+cycle(data)
 hist(x, breaks = 50,probability = T ,main = "Histogram of MAG Variable")
 lines(density(x), col="red", lwd=2)
 
-
-nll <- function(theta0,theta1) {
-  x <- data_ASM$`Intervent time`
-  y <- data_ASM$MAG
-  mu = exp(theta0 + x*theta1)
-  -sum(y*(log(mu)) - mu)
-}
-
-est <- stats4::mle(minuslog=nll, start=list(theta0=2,theta1=0))
-summary(est)
-library(bbmle)
-mle(minuslogl = nll, start = list(theta0 = 2, theta1 = 0))
-
-pred.ts <- (exp(coef(est)['theta0'] +data_ASM$`Intervent time`*coef(est)['theta1'] ))
-rmse(pred.ts, data_ASM$MAG)
-
-glm(MAG ~ `Intervent time`, family = "poisson", data = data_ASM)
-
-
-######################################################################
-
+#Declustering of Data
 spaceM <- exp(-1.024 + 0.804*6) + 15
 spaceN <- exp(-1.024 + 0.804*x) - 15
 
@@ -50,18 +24,9 @@ timeN <- exp(-2.870 + 1.235*x) - 60
 g = max(t) + 60
 h = min(t) - 60
 
-conservative scrutiny-based
-
-time
+#Fitting Distribution using MLE & MME taking Intervent time as i.i.d.
 
 library(fitdistrplus)
-
-x <-DECLUST_DATA$MAG
-y <- DECLUST_DATA$`Intervent time`/365
-summary(y)
-
-hist(y, breaks = 50,probability = T ,main = "Histogram of Intervent time Variable")
-lines(density(y), col="red", lwd=2)
 
 norMLE<-fitdist(y[-1], "norm", method= "mle")
 norMLE
@@ -114,14 +79,10 @@ summary(gammaMME)
 lnormMME<-fitdist(y[-1], "lnorm", method= "mme")
 summary(lnormMME)
 
+#Goodness of Fit
 gfMLE<-gofstat(list(norMLE, weiMLE,expMLE,lnormMLE, gammaMLE))
-
 gfMME <-gofstat(list(norMME,expMME, lnormMME, gammaMME))
-gfMME
 
-rln= rlnorm(42,-0.3482,1.144)
-grid = seq(2010,2100,10)
-plot(grid, ptlnorm(grid,-0.3482,1.144),type="l",xlab="time in years",ylab="f(x)")
-lines(density(x),col="red")
+#CDF plot of K-S test
 library(EnvStats)
 cdfPlot(distribution = "gamma", param.list = list( shape=  0.9851117 , rate  = 0.7758417), xlab = "Time Interval in years", ylab = "Cumulative Probability", xlim = c(0, 25) )
